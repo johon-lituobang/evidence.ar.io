@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Evidence.ar.io · Permanent links to on-chain evidence</title>
+<style>
+  :root {
+    --bg: #ffffff; --fg: #111418; --muted: #5b6478;
+    --accent: #b3261e; --card: #f6f8fa; --border: #d0d7de;
+    --mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; min-height: 100vh; padding: 32px 20px 64px;
+    background: radial-gradient(1200px 600px at 70% -10%, #eef2f7 0%, #ffffff 60%);
+    color: var(--fg);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+    line-height: 1.6;
+  }
+  .wrap { max-width: 760px; margin: 0 auto; }
+  .brand { font-family: var(--mono); font-size: 14px; color: var(--muted); margin-bottom: 56px; }
+  .brand b { color: var(--accent); }
+  h1 { font-size: clamp(28px, 5.5vw, 46px); line-height: 1.2; margin: 0 0 8px; letter-spacing: -0.02em; }
+  h1.en { color: var(--muted); font-weight: 500; font-size: clamp(18px, 3.5vw, 26px); margin-bottom: 24px; }
+  h1 .accent { color: var(--accent); }
+  .lead { color: var(--muted); font-size: 16px; margin: 0 0 8px; max-width: 620px; }
+  .lead.en { margin-bottom: 48px; }
+  h2 { font-size: 14px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin: 48px 0 16px; }
+  .steps { display: grid; gap: 12px; }
+  .step { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 16px 18px; }
+  .step .n { font-family: var(--mono); color: var(--accent); font-size: 13px; }
+  .step .t { font-weight: 600; margin: 4px 0 2px; }
+  .step .t.en { color: var(--muted); font-weight: 500; font-size: 14px; }
+  .step .d { color: var(--muted); font-size: 14px; }
+  .step .d.en { font-size: 13px; }
+  .panel { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 18px 20px; }
+  .panel p { margin: 0 0 10px; }
+  .panel p:last-child { margin-bottom: 0; }
+  .panel .en { color: var(--muted); font-size: 14px; }
+  a.mail { color: var(--accent); text-decoration: none; font-family: var(--mono); }
+  a.mail:hover { text-decoration: underline; }
+  .sample {
+    background: var(--card); border: 1px solid var(--border); border-radius: 10px;
+    padding: 16px 18px; font-family: var(--mono); font-size: 13px;
+  }
+  .sample .label { color: var(--muted); display: block; margin-bottom: 8px; }
+  .sample code { color: var(--accent); word-break: break-all; }
+  .note { color: #5b6478; font-size: 13px; margin-top: 12px; }
+  footer { margin-top: 64px; color: #5b6478; font-size: 12px; font-family: var(--mono); }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="brand"><b>evidence</b>.ar.io</div>
+
+    <h1>为保存在 Arweave 上的证据，提供<span class="accent">永久链接</span>。</h1>
+    <h1 class="en">Permanent links to evidence stored on Arweave.</h1>
+    <p class="lead">每份证据文件写入 Arweave 后即不可篡改、永久存续。evidence.ar.io 把这些交易 ID 映射成易读、可分享的永久链接。</p>
+    <p class="lead en">Once a piece of evidence is written to Arweave it is immutable and permanent. evidence.ar.io maps those transaction IDs to readable, shareable permanent URLs.</p>
+
+    <h2>它是怎么工作的 · How it works</h2>
+    <div class="steps">
+      <div class="step">
+        <div class="n">01</div>
+        <div class="t">写入 Arweave</div>
+        <div class="t en">Write to Arweave</div>
+        <div class="d">证据（文档、截图、哈希、合同、数据集……）上传到 Arweave，得到一个不可更改的 TxID。</div>
+        <div class="d en">Upload evidence (documents, screenshots, hashes, contracts, datasets…) to Arweave and receive an immutable TxID.</div>
+      </div>
+      <div class="step">
+        <div class="n">02</div>
+        <div class="t">登记进 manifest</div>
+        <div class="t en">Register in the manifest</div>
+        <div class="d">把 TxID 映射到一个可读路径，例如 <code>/case-001/report.pdf</code>，随 manifest 一起永久存在。</div>
+        <div class="d en">Map the TxID to a readable path, e.g. <code>/case-001/report.pdf</code>, stored permanently with the manifest.</div>
+      </div>
+      <div class="step">
+        <div class="n">03</div>
+        <div class="t">通过域名访问</div>
+        <div class="t en">Access via this domain</div>
+        <div class="d">任何人打开 <code>https://evidence.ar.io/&lt;路径&gt;</code>，网关都会解析到那份原始数据，内容永远一致。</div>
+        <div class="d en">Anyone opening <code>https://evidence.ar.io/&lt;path&gt;</code> is served the original bytes, unchanged, forever.</div>
+      </div>
+    </div>
+
+    <h2>如何添加 · How to add evidence</h2>
+    <div class="panel">
+      <p><strong>目前 / Currently：</strong>请发送邮件到 <a class="mail" href="mailto:tuobang@biomathematics.org">tuobang@biomathematics.org</a>，附上证据文件或其 Arweave TxID，由管理员手工登记到本域名。</p>
+      <p class="en">Email <a class="mail" href="mailto:tuobang@biomathematics.org">tuobang@biomathematics.org</a> with the evidence file or its Arweave TxID; an administrator will add it to this domain manually.</p>
+    </div>
+
+    <h2>抗劫持说明 · Resilience note</h2>
+    <div class="panel">
+      <p><strong>manifest 可被任意站点自由引用。</strong>evidence.ar.io 背后的 manifest 本身就是一笔永久存放在 Arweave 上的交易，任何网站、任何网关都可以直接链接，无需授权。</p>
+      <p class="en">The manifest behind evidence.ar.io is itself a permanent Arweave transaction; any website or any gateway may link to it directly, without permission.</p>
+      <p><strong>即使 evidence.ar.io 被劫持、停用或审查，</strong>用 manifest 的 TxID 直接构造的链接依然有效，内容逐字节不变。请把下面这种备用格式一并保存或转发：</p>
+      <p class="en">Even if evidence.ar.io is hijacked, suspended, or censored, links built directly on the manifest TxID keep serving the exact same bytes. Keep / forward the fallback form below:</p>
+    </div>
+    <div class="sample" style="margin-top:12px">
+      <span class="label">当前 manifest TxID · Current manifest ID（自动读取，无需手工更新）</span>
+      <code id="curManifest">读取中… / reading…</code>
+      <div style="margin-top:10px">
+        <a id="viewManifest" href="#" style="color:var(--accent);font-family:var(--mono);font-size:13px;text-decoration:none;display:none">查看 manifest（JSON）· View manifest JSON ↗</a>
+      </div>
+      <span class="label" style="margin-top:14px">备用直链 · Fallback URL</span>
+      <code id="fallbackUrl">https://&lt;任意网关&gt;/&lt;manifestTxID&gt;/&lt;路径&gt;</code>
+      <span class="label" style="margin-top:14px">协议形式 · Protocol form</span>
+      <code>ar://&lt;manifestTxID&gt;/&lt;路径&gt;</code>
+    </div>
+
+    <h2>链接格式 · Link format</h2>
+    <div class="sample">
+      <span class="label">永久链接 / Permanent URL</span>
+      <code>https://evidence.ar.io/&lt;路径&gt;</code>
+      <span class="label" style="margin-top:14px">链上定位 / On-chain pointer</span>
+      <code>ar://&lt;TxID&gt;</code>
+    </div>
+
+    <footer>hosted on ar.io · arweave/paths manifest · Thanks to Doubao for the coding of this website.</footer>
+  </div>
+  <script>
+    // 自动读取当前网关解析到的 manifest TxID（响应头 x-arns-resolved-id），
+    // 不写死任何 TxID：manifest 每次更新后这里会自动显示最新值，主页无需改动。
+    (function () {
+      var out = document.getElementById('curManifest');
+      var fb = document.getElementById('fallbackUrl');
+      fetch(location.href, { method: 'HEAD', cache: 'no-store' })
+        .then(function (r) { return { id: r.headers.get('x-arns-resolved-id'), status: r.status }; })
+        .then(function (res) {
+          if (!res.id) throw new Error('no header');
+          out.textContent = res.id;
+          fb.textContent = 'https://arweave.net/' + res.id + '/<路径>';
+          var link = document.getElementById('viewManifest');
+          link.href = '/' + res.id;            // 同网关直取 manifest JSON
+          link.style.display = 'inline-block';
+        })
+        .catch(function () {
+          out.textContent = '（当前网关未提供解析头，请通过 evidence.ar.io 访问）';
+        });
+    })();
+  </script>
+</body>
+</html>
+<!-- （注：内容由AI生成） -->

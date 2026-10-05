@@ -1,0 +1,36 @@
+{
+  "manifest": "arweave/paths",
+  "version": "0.2.0",
+  "index": {
+    "path": "index.html"
+  },
+  "fallback": {
+    "path": "index.html"
+  },
+  "paths": {
+    "index.html": {
+      "id": "KeHylcYkMZNeJIDIem-8TaUo8Y0S5UTIR91NI-XOEc8"
+    },
+    "sheet/openalexbookpublications2013_2022_20231115_v1": {
+      "id": "FmfjKurQhmy6kFfgDv2usr5bq_KskZw6dMpSN_fjjZQ"
+    },
+    "video/yigalachmongooglescholar_20260926_v1": {
+      "id": "xRmGHeREUKLohsbjWssmw7GKLAXiqtLTiPe53R32DEY"
+    },
+    "capture/wikipedia_prebisch_singer_hypothesis_2026_04_04_v1": {
+      "id": "jDGLFRTYSQZKOMVRhX1sh7iT6tS2hQIYQjjMoqv4j9g"
+    },
+    "capture/quantitative_support_lituobang_ijssrr_2026-02-08_v1": {
+      "id": "jwIHTkQlHbbx3Oxr8mRXT3s0mZOuPFUkzh52LQV8nV8"
+    },
+    "image/declaration_lituobang_2025_12_14_v1": {
+      "id": "onsQn10VvbO4uK-cRPqF5b-2PEvDQGG036qT39gmRaw"
+    },
+    "web/alr-ca_lituobang_2026_01_v1": {
+      "id": "wN21BQYCJUi4v6o4Agzq0F7dFGgEO6nXLPBtR3nqC5U"
+    },
+    "web/alr-ca": {
+      "id": "wN21BQYCJUi4v6o4Agzq0F7dFGgEO6nXLPBtR3nqC5U"
+    }
+  }
+}
